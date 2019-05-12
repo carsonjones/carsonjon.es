@@ -5,6 +5,13 @@ import { MDXProvider } from "@mdx-js/react"
 import GlobalStyles from 'styles/global';
 import { Text } from 'elements';
 
+const components = {
+  h1: props => <Text subheading {...props} />,
+  h2: props => <Text superstandard {...props} />,
+  h3: props => <Text standard darker {...props} />,
+  p: props => <Text small {...props} />,
+};
+
 const Page = ({ children, title, ...rest}) => {
   return (
     <Fragment>
@@ -14,14 +21,7 @@ const Page = ({ children, title, ...rest}) => {
         <meta name="description" content="Carson's Site" />
       </Helmet>
       
-      <MDXProvider
-        components={{
-          h1: props => <Text subheading {...props} />,
-          h2: props => <Text superstandard {...props} />,
-          h3: props => <Text standard darker {...props} />,
-          p: props => <Text small {...props} />,
-        }}
-      >
+      <MDXProvider components={components}>
         {children}
       </MDXProvider>
     </Fragment>

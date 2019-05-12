@@ -1,6 +1,22 @@
+const urljoin = require('url-join');
+const config = require('./data/config');
+
 module.exports = {
+  pathPrefix: config.site.prefix === '' ? '/' : config.site.prefix,
   siteMetadata: {
-    title: 'Carson Jones'
+    title: 'Carson Jones',
+    siteUrl: urljoin(config.site.url, config.site.prefix),
+    rssMetadata: {
+      site_url: urljoin(config.site.url, config.site.prefix),
+      feed_url: urljoin(config.site.url, config.site.prefix, config.site.rss),
+      title: config.siteTitle,
+      description: config.siteDescription,
+      image_url: `${urljoin(
+        config.site.url,
+        config.site.prefix
+      )}/logos/logo-512.png`,
+      copyright: config.copyright
+    }
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
