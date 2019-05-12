@@ -1,0 +1,44 @@
+{
+  "name": "carson-jones",
+  "private": true,
+  "description": "Portfolio and Blog",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "dev": "yarn develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "yarn develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^1.0.18",
+    "@mdx-js/react": "^1.0.16",
+    "@mdx-js/tag": "^0.20.3",
+    "babel-plugin-styled-components": "^1.10.0",
+    "gatsby": "^2.4.3",
+    "gatsby-mdx": "^0.6.3",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-source-filesystem": "^2.0.33",
+    "polished": "^3.3.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
+    "styled-components": "^4.2.0",
+    "styled-media-query": "^2.1.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.17.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
