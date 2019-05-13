@@ -46,7 +46,7 @@ module.exports = {
       resolve: `gatsby-mdx`,
       options: {
         defaultLayouts: {
-          posts: require.resolve('./src/layout/Blog.js'),
+          blog: require.resolve('./src/layout/Blog.js'),
           default: require.resolve('./src/layout/Page.js')
         }
       }
@@ -54,7 +54,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
+        name: `blog`,
         path: `${__dirname}/src/pages/blog/`
       }
     },

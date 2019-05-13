@@ -12,12 +12,12 @@ const components = {
   p: props => <Text small {...props} />,
 };
 
-const Page = ({ children, title, ...rest}) => {
+const Page = ({ children, title = null, pageContext = null }) => {
+  // const pageTitle = pageContext.title || title;
   return (
     <Fragment>
       <GlobalStyles />
       <Helmet>
-        <title>{title}</title>
         <meta name="description" content="Carson's Site" />
       </Helmet>
       
@@ -33,7 +33,7 @@ Page.propTypes = {
 };
 Page.defaultProps = {
   children: PropTypes.noop,
-  title: 'Carson Jones',
+  title: null,
 };
 
 export default Page;
