@@ -1,19 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Page } from 'layout';
+import { Text } from 'elements';
 import { theme } from 'styles';
 import * as S from './home/Home.styles';
+import Header from './home/Header';
 
 const Home = () => {
   return (
     <Page>
       <S.Main>
         <S.Hero>
-          <S.HeroMain>
-            Hello
-          </S.HeroMain>
-          <S.Background />
+          <Header />
         </S.Hero>
+        <S.Background />
       </S.Main>
     </Page>
   );
