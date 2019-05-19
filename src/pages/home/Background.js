@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import useWindowWidth from 'utils/useWindowWidth';
+import selectBreakPoint from 'utils/selectBreakpoint';
 
-const xs = () => (
+const XS = () => (
   <Fragment>
     <path fill="#B0353B" d="M0 74l46.871-.399L314.88 260.95H320V0H0z" />
     <path fill="#FFE600" d="M0 113l34.193-.11 268.008 187.385L320 300v20h-24.138L27.854 132.615 0 133z"
@@ -13,7 +15,7 @@ const xs = () => (
   </Fragment>
 );
 
-const sm = () => (
+const SM = () => (
   <Fragment>
     <path fill="#B0353B" d="M0 110.402h43.307L445.32 391.425H480V0H0z" />
     <path fill="#FFE600" d="M0 169.335h24.29L426.3 450.413H480V480h-63.208L14.781 198.922H0z"
@@ -25,7 +27,7 @@ const sm = () => (
   </Fragment>
 );
 
-const md = () => (
+const MD = () => (
   <Fragment>
     <path fill="#B0353B" d="M0 115.002h220.112l418.762 292.732H768V0H0z" />
     <path fill="#FFE600" d="M0 176.39h200.302l418.762 292.79H768V500H609.159L190.397 207.21H0z"
@@ -37,7 +39,7 @@ const md = () => (
   </Fragment>
 );
 
-const lg = () => (
+const LG = () => (
   <Fragment>
     <path fill="#B0353B" d="M0 169.513h261.444L878.7 601H992V0H0z" />
     <path fill="#FFE600" d="M0 260h232.244L849.5 691.571H992V737H834.9L217.644 305.429H0z"
@@ -49,7 +51,7 @@ const lg = () => (
   </Fragment>
 );
 
-const xl = () => (
+const XL = () => (
   <Fragment>
     <path fill="#B0353B" d="M0 209h280l761 532h159V0H0z" />
     <path fill="#FFE600" d="M0 321h244l761 532h195v56H987L226 377H0z" />
@@ -58,7 +60,7 @@ const xl = () => (
   </Fragment>
 );
 
-const xxl = () => (
+const XXL = () => (
   <Fragment>
     <path fill="#B0353B" d="M0 209h400l761 532h279V0H0z" />
     <path fill="#FFE600" d="M0 321h364l761 532h315v56h-333L346 377H0z" />
@@ -71,46 +73,50 @@ const size = {
   xs: {
     width: 320,
     height: 320,
-    component: <xs />,
+    component: <XS />,
   },
   sm: {
     width: 480,
     height: 480,
-    component: <sm />,
+    component: <SM />,
   },
   md: {
     width: 768,
     height: 500,
-    component: <md />,
+    component: <MD />,
   },
   lg: {
     width: 992,
     height: 767,
-    component: <lg />
+    component: <LG />,
   },
   xl: {
     width: 1200,
     height: 909,
-    component: <xl />
+    component: <XL />,
   },
   xxl: {
     width: 1440,
     height: 909,
-    component: <xxl />
+    component: <XXL />,
   },
 };
 
-const Background =  ({ bp, ...rest }) => (
-  <svg
-    viewBox={`0 0 ${size[bp].width} ${size[bp].width}`}
-    preserveAspectRatio="xMidYMid"
-    {...rest}
-  >
-    <g fill="none">
-      {size[bp].component}
-    </g>
-  </svg>
-);
+const Background =  ({ ...rest }) => {
+  const width = useWindowWidth();
+  const bp = selectBreakPoint(width);
+  return (
+    <svg
+      viewBox={`0 0 ${size[bp].width} ${size[bp].height}`}
+      preserveAspectRatio="xMidYMid"
+      {...rest}
+    >
+      <g fill="none">
+        {size[bp].component}
+      </g>
+    </svg>
+  );
+};
 Background.propTypes = {
   bp: PropTypes.string,
 };

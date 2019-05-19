@@ -30,7 +30,13 @@ export const Background = styled(BG)`
   top: 0;
   left: 0;
   z-index: 0;
-  /* ${bp.greaterThan('md')`
-    top: -40px;
-  `} */
+  ${bp.between('800px', 'lg')`
+    top: -64px;
+  `}
+  ${bp.between('lg', 'xl')`
+    top: -128px;
+  `}
+  ${bp.greaterThan('xl')`
+    top: -180px;
+  `}
 `;
