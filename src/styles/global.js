@@ -1,6 +1,55 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/Touche.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/ToucheBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/ToucheSemibold.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/ToucheMedium.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/ToucheLight.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/Touche.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Touche';
+    src: url('../../public/fonts/telefonBlack.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+  }
+
   html,
   body {
     height: 100%;
@@ -17,7 +66,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font: 16px/1 sans-serif;
-    font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Touche', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }

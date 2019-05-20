@@ -1,10 +1,11 @@
 import React from 'react';
 import { Box } from 'elements';
-import { StyledLogo } from './Header.styles';
+import { StyledLogo, Tagline } from './Header.styles';
 
 const Header = () => (
   <Box wrapper styles="position: relative">
     <StyledLogo />
+    <Tagline>Product & Design</Tagline>
   </Box>
 );
 

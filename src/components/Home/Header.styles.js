@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Logo } from 'illustrations';
-import { bp } from 'styles';
+import { bp, theme } from 'styles';
+import { Text } from 'elements';
 
 export const StyledLogo = styled(Logo)`
   position: absolute;
@@ -36,3 +37,11 @@ export const StyledLogo = styled(Logo)`
     right: 64px;
   `}
 `;
+
+export const Tagline = styled(Text)`
+  text-transform: uppercase;
+  font-weight: 300 !important;
+`;
+Tagline.defaultProps = {
+  color: 'vino',
+};
