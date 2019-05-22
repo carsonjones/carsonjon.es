@@ -1,36 +1,30 @@
 import styled from 'styled-components';
 import { Logo } from 'illustrations';
 import { bp, theme } from 'styles';
-import { Text } from 'elements';
+import { Text, Box } from 'elements';
 
-export const StyledLogo = styled(Logo)`
+export const Container = styled(Box)`
   position: absolute;
   top: 12px;
   right: 16px;
-  height: 180px;
   ${bp.between(0, 'xs')`
-    top: 24px;
-    height: 64px;
+    top: 32px;
   `}
   ${bp.between('xs', 'sm')`
     top: 48px;
-    height: 120px;
     right: 32px;
   `}
   ${bp.between('600px', 'sm')`
     top: 72px;
-    height: 120px;
     right: 40px;
   `}
   ${bp.between('sm', 'md')`
     top: 120px;
     right: 120px;
-    height: 144px;
   `}
   ${bp.between('md', 'xl')`
     top: 64px;
     right: 64px;
-    height: 170px;
   `}
   ${bp.greaterThan('xl')`
     top: 180px;
@@ -38,10 +32,53 @@ export const StyledLogo = styled(Logo)`
   `}
 `;
 
+export const StyledLogo = styled(Logo)`
+  position: relative;
+  height: 180px;
+  ${bp.between(0, 'xs')`
+    height: 64px;
+  `}
+  ${bp.between('xs', 'sm')`
+    height: 120px;
+  `}
+  ${bp.between('600px', 'sm')`
+    height: 120px;
+  `}
+  ${bp.between('sm', 'md')`
+    height: 144px;
+  `}
+  ${bp.between('md', 'xl')`
+    height: 170px;
+  `}
+`;
+
 export const Tagline = styled(Text)`
   text-transform: uppercase;
-  font-weight: 300 !important;
+  font-weight: 400 !important;
+  ${bp.lessThan('xs')`
+    margin-left: 48px;
+    max-width: 72px;
+  `}
+  ${bp.between('xs', 'sm')`
+    margin-top: -16px;
+    margin-left: 96px;
+  `}
+  ${bp.between('sm', 'md')`
+    margin-top: -18px;
+    margin-left: 128px;
+    height: 170px;
+  `}
+  ${bp.greaterThan('md')`
+    margin-left: 136px;
+    margin-top: -12px;
+  `}
 `;
 Tagline.defaultProps = {
   color: 'vino',
+  size: {
+    xs: 'small',
+    sm: 'substandard',
+    md: 'standard',
+    lg: 'superstandard',
+  }
 };
