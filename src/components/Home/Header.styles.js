@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Logo } from 'illustrations';
-import { bp, theme } from 'styles';
+import { bp } from 'styles';
 import { Text, Box } from 'elements';
 
 export const Container = styled(Box)`

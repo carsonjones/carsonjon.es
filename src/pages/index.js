@@ -10,9 +10,7 @@ const Home = () => {
   return (
     <Page>
       <S.Main>
-        <S.Hero>
-          <Header />
-        </S.Hero>
+        <S.Hero><Header /></S.Hero>
         <S.Background />
       </S.Main>
     </Page>
