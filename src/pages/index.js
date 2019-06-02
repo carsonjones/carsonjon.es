@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Page } from 'layout';
 import { Text } from 'elements';
 import { theme } from 'styles';
-import * as S from 'components/home/Home.styles';
+import * as S from '../components/home/Home.styles';
 import { Header } from 'components';
 
 const Home = () => {
