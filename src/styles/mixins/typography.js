@@ -1,9 +1,9 @@
 import { css } from 'styled-components';
-// import { lighten } from 'polished';
+import { lighten } from 'polished';
+import { colorSelect } from 'utils/colorSelect';
 import * as theme from '../variables';
 import bp from '../breakpoints';
 import config from './typography.config';
-import { colorSelect } from '../utils';
 import { renderLessThanMix, renderGreaterThanMix } from './mediaStyles';
 
 export const lineHeight = lh => css`
@@ -19,7 +19,7 @@ export const selectFont = (font) => {
     case 'mono':
       return css`
         &&& { 
-          font-family: ${theme.defaultFontMono};
+          font-family: ${theme.fontFamilyMono};
           ${''}
           letter-spacing: .08em;
         }
@@ -28,48 +28,45 @@ export const selectFont = (font) => {
       return null;
   }
 };
+
 export const selectShade = (shade) => {
   switch (shade) {
     case 'darker':
       return css`
         &&& { color: ${theme.black}; }
       `;
+    case 'dark':
+      return css`
+        &&& { color: ${theme.defaultHeadingColor}; }
+      `;
+    case 'light':
+      return css`
+        &&& { color: ${theme.gray3}; }
+      `;
+    case 'white':
+      return css`
+        &&& { color: ${theme.white}; }
+      `;
+    case 'whiteish':
+      return css`
+        &&& { color: ${lighten(0.1, theme.grey6)}; }
+      `;
+    case 'medium':
+    case 'default':
     default:
       return css`
         &&& { color: ${theme.defaultTextColor}; }
       `;
   }
 };
+
 export const selectColor = color => css`
     &&& { color: ${colorSelect(color)}; }
   `;
 
-export const mixJumbo = css`
-  color: ${theme.defaultHeadingColor};
-  font-family: ${theme.defaultFontHeading};
-  font-weight: ${theme.defaultHeadingWeight};
-  font-size: ${config.jumbo.xs.fontSize};
-  line-height: ${config.jumbo.xs.lineHeight};
-  ${bp.greaterThan('sm')`
-    font-size: ${config.jumbo.sm.fontSize};
-    line-height: ${config.jumbo.sm.lineHeight};
-  `}
-  ${bp.greaterThan('md')`
-    font-size: ${config.jumbo.md.fontSize};
-    line-height: ${config.jumbo.md.lineHeight};
-  `}
-  ${bp.greaterThan('lg')`
-    font-size: ${config.jumbo.lg.fontSize};
-    line-height: ${config.jumbo.lg.lineHeight};
-  `}
-  ${bp.greaterThan('xl')`
-    font-size: ${config.jumbo.lg.fontSize};
-    line-height: ${config.jumbo.lg.lineHeight};
-  `}
-`;
 export const mixHero = css`
   color: ${theme.defaultHeadingColor};
-  font-family: ${theme.defaultFontHeading};
+  font-family: ${theme.fontFamilyHeading};
   font-weight: ${theme.defaultHeadingWeight};
   font-size: ${config.hero.xs.fontSize};
   line-height: ${config.hero.xs.lineHeight};
@@ -90,9 +87,10 @@ export const mixHero = css`
     line-height: ${config.hero.lg.lineHeight};
   `}
 `;
+
 export const mixHeading = css`
   color: ${theme.defaultHeadingColor};
-  font-family: ${theme.defaultFontHeading};
+  font-family: ${theme.fontFamilyHeading};
   font-weight: ${theme.defaultHeadingWeight};
   font-size: ${config.heading.xs.fontSize};
   line-height: ${config.heading.xs.lineHeight};
@@ -113,9 +111,10 @@ export const mixHeading = css`
     line-height: ${config.heading.lg.lineHeight};
   `}
 `;
+
 export const mixSubheading = css`
   color: ${theme.defaultTextColor};
-  font-family: ${theme.defaultFontFamily};
+  font-family: ${theme.fontFamilyDefault};
   font-weight: ${theme.defaultHeadingWeight};
   font-size: ${config.subheading.xs.fontSize};
   line-height: ${config.subheading.xs.lineHeight};
@@ -136,32 +135,34 @@ export const mixSubheading = css`
     line-height: ${config.subheading.lg.lineHeight};
   `}
 `;
-export const mixSuperstandard = css`
+
+export const mixLarge = css`
   color: ${theme.defaultTextColor};
   font-weight: ${theme.defaultTextWeight};
-  font-family: ${theme.defaultFontFamily};
-  font-size: ${config.superstandard.xs.fontSize};
-  line-height: ${config.superstandard.xs.lineHeight};
+  font-family: ${theme.fontFamilyDefault};
+  font-size: ${config.large.xs.fontSize};
+  line-height: ${config.large.xs.lineHeight};
   ${bp.greaterThan('sm')`
-    font-size: ${config.superstandard.sm.fontSize};
-    line-height: ${config.superstandard.sm.lineHeight};
+    font-size: ${config.large.sm.fontSize};
+    line-height: ${config.large.sm.lineHeight};
   `}
   ${bp.greaterThan('md')`
-    font-size: ${config.superstandard.md.fontSize};
-    line-height: ${config.superstandard.md.lineHeight};
+    font-size: ${config.large.md.fontSize};
+    line-height: ${config.large.md.lineHeight};
   `}
   ${bp.greaterThan('lg')`
-    font-size: ${config.superstandard.lg.fontSize};
-    line-height: ${config.superstandard.lg.lineHeight};
+    font-size: ${config.large.lg.fontSize};
+    line-height: ${config.large.lg.lineHeight};
   `}
   ${bp.greaterThan('xl')`
-    font-size: ${config.superstandard.lg.fontSize};
-    line-height: ${config.superstandard.lg.lineHeight};
+    font-size: ${config.large.lg.fontSize};
+    line-height: ${config.large.lg.lineHeight};
   `}
 `;
+
 export const mixStandard = css`
   color: ${theme.defaultTextColor};
-  font-family: ${theme.defaultFontFamily};
+  font-family: ${theme.fontFamilyDefault};
   font-weight: ${theme.defaultTextWeight};
   font-size: ${config.standard.xs.fontSize};
   line-height: ${config.standard.xs.lineHeight};
@@ -183,57 +184,36 @@ export const mixStandard = css`
     line-height: ${config.standard.lg.lineHeight};
   `}
 `;
-export const mixSubstandard = css`
+
+export const mixSmall = css`
   color: ${theme.defaultTextColor};
   font-weight: ${theme.defaultTextWeight};
-  font-family: ${theme.defaultFontFamily};
-  font-size: ${config.substandard.xs.fontSize};
-  line-height: ${config.substandard.xs.lineHeight};
-  ${bp.greaterThan('sm')`
-    font-size: ${config.substandard.sm.fontSize};
-    line-height: ${config.substandard.sm.lineHeight};
-  `}
-  ${bp.greaterThan('md')`
-    font-size: ${config.substandard.md.fontSize};
-    line-height: ${config.substandard.md.lineHeight};
-  `}
-  ${bp.greaterThan('lg')`
-    font-size: ${config.substandard.lg.fontSize};
-    line-height: ${config.substandard.lg.lineHeight};
-  `}
-  ${bp.greaterThan('xl')`
-    font-size: ${config.substandard.lg.fontSize};
-    line-height: ${config.substandard.lg.lineHeight};
-  `}
-`;
-export const mixLabel = css`
-  color: ${theme.defaultTextColor};
-  font-weight: ${theme.defaultTextWeight};
-  font-family: ${theme.defaultFontFamily};
-  font-size: ${config.label.xs.fontSize};
-  line-height: ${config.label.xs.lineHeight};
+  font-family: ${theme.fontFamilyDefault};
+  font-size: ${config.small.xs.fontSize};
+  line-height: ${config.small.xs.lineHeight};
   letter-spacing: 0.025em;
   ${bp.greaterThan('sm')`
-    font-size: ${config.label.sm.fontSize};
-    line-height: ${config.label.sm.lineHeight};
+    font-size: ${config.small.sm.fontSize};
+    line-height: ${config.small.sm.lineHeight};
   `}
   ${bp.greaterThan('md')`
-    font-size: ${config.label.md.fontSize};
-    line-height: ${config.label.md.lineHeight};
+    font-size: ${config.small.md.fontSize};
+    line-height: ${config.small.md.lineHeight};
   `}
   ${bp.greaterThan('lg')`
-    font-size: ${config.label.lg.fontSize};
-    line-height: ${config.label.lg.lineHeight};
+    font-size: ${config.small.lg.fontSize};
+    line-height: ${config.small.lg.lineHeight};
   `}
   ${bp.greaterThan('xl')`
-    font-size: ${config.label.lg.fontSize};
-    line-height: ${config.label.lg.lineHeight};
+    font-size: ${config.small.lg.fontSize};
+    line-height: ${config.small.lg.lineHeight};
   `}
 `;
+
 export const mixTiny = css`
   color: ${theme.defaultTextColor};
   font-weight: ${theme.defaultTextWeight};
-  font-family: ${theme.defaultFontFamily};
+  font-family: ${theme.fontFamilyDefault};
   font-size: ${config.tiny.xs.fontSize};
   line-height: ${config.tiny.xs.lineHeight};
   letter-spacing: 0.025em;
@@ -254,29 +234,33 @@ export const mixTiny = css`
     line-height: ${config.tiny.lg.lineHeight};
   `}
 `;
+
 export const mixDefault = css`
   ${mixStandard}
 `;
 
+const mixUnderline = () => css`
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: ${props => props.linkColor ? theme.blue3 : 'inherit'}
+`;
+
 export const mixLink = () => css`
   &&&{
-    font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
-    text-decoration-line: underline;
-    text-decoration-style: solid;
-    color: ${props => props.linkColor ? theme.black : 'inherit'};
-    text-decoration-color: ${props => props.linkColor ? theme.black : 'inherit'};
-    &:hover {cursor: pointer;}
+    color: ${props => props.linkColor ? props.linkColor : theme.blue3};
+    ${props => props.underline && mixUnderline()}
+    &:hover {
+      cursor: pointer;
+      color: ${props => props.hoverColor && `${props.hoverColor}`};
+    }
   }
 `;
 
 const returnSizeMixin = (size) => {
   let sizeMixin = null;
   switch (size) {
-    case 'jumbo':
-      sizeMixin = mixJumbo;
-      break;
     case 'hero':
       sizeMixin = mixHero;
       break;
@@ -286,15 +270,12 @@ const returnSizeMixin = (size) => {
     case 'subheading':
       sizeMixin = mixSubheading;
       break;
-    case 'superstandard':
-      sizeMixin = mixSuperstandard;
-      break;
-    case 'substandard':
-      sizeMixin = mixSubstandard;
+    case 'large':
+      sizeMixin = mixLarge;
       break;
     case 'small':
     case 'label':
-      sizeMixin = mixLabel;
+      sizeMixin = mixSmall;
       break;
     case 'tiny':
       sizeMixin = mixTiny;

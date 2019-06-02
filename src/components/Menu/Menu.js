@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 imp
 import {
   Container,
+  Control,
 } from './Menu.styles';
 
 class Menu extends Component {

@@ -47,8 +47,8 @@ const determineDirectionObj = (direction) => {
 };
 
 const constructDirectionalCss = (dir, setting, prop, grid = 8) => css`
-    ${`${prop}-${dir}: ${parseFloat(setting, 10) * grid}px;`}
-  `;
+  ${`${prop}-${dir}: ${parseFloat(setting, 10) * grid}px;`}
+`;
 
 const renderDirectionalCss = (dir, setting, bkp = '1px', prop = 'margin', isGreater = true) => {
   if (isGreater) {
@@ -87,7 +87,21 @@ const parseSettings = (settings) => {
 };
 
 const handleSpacing = (settings, prop) => {
-  if (Array.isArray(settings)) return [];
+  if (Array.isArray(settings)) {
+    const styles = [];
+    settings.map((setting) => {
+      const {
+        dir,
+        amount,
+        bkp,
+      } = parseSettings(setting);
+      styles.push(renderDirectionalCss(dir, amount, bkp, prop).join('\r\n'));
+      return null;
+    });
+    return css`
+      ${styles.join('\r\n')}
+    `;
+  }
   if (typeof settings === 'string') {
     const {
       dir,

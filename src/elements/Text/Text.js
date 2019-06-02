@@ -18,13 +18,11 @@ export const textPropTypes = {
   className: PropTypes.string,
 
   size: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  jumbo: PropTypes.bool,
   hero: PropTypes.bool,
   heading: PropTypes.bool,
   subheading: PropTypes.bool,
-  superstandard: PropTypes.bool,
+  large: PropTypes.bool,
   standard: PropTypes.bool,
-  substandard: PropTypes.bool,
   small: PropTypes.bool,
   tiny: PropTypes.bool,
 
@@ -77,13 +75,11 @@ export const textDefaultProps = {
   className: null,
 
   size: null,
-  jumbo: false,
   hero: false,
   heading: false,
   subheading: false,
-  superstandard: false,
+  large: false,
   standard: false,
-  substandard: false,
   small: false,
   tiny: false,
 
@@ -128,14 +124,12 @@ const TypographyElement = styled.div`
   &&& {
     /* Sizing */
     ${props => props.size ? selectSize(props.size) : mixDefault}
-    ${props => props.jumbo && selectSize('jumbo')};
     ${props => props.hero && selectSize('hero')};
     ${props => props.heading && selectSize('heading')};
     ${props => props.subheading && selectSize('subheading')};
-    ${props => props.superstandard && selectSize('superstandard')};
+    ${props => props.large && selectSize('large')};
     ${props => props.standard && selectSize('standard')};
-    ${props => props.substandard && selectSize('substandard')};
-    ${props => props.small && selectSize('label')};
+    ${props => props.small && selectSize('small')};
     ${props => props.tiny && selectSize('tiny')};
 
     /* Typography */
