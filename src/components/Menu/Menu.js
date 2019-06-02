@@ -41,7 +41,6 @@ class Menu extends Component {
           >
             <Nav>
               <Option>Blog</Option>
-              <Option>Background</Option>
               <Option>Sandbox</Option>
               <Option>Gifs</Option>
             </Nav>

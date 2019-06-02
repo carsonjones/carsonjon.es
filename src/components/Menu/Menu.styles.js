@@ -8,7 +8,7 @@ export const Container = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: ${theme.red};
+  background: ${theme.magenta};
   overflow-y: scroll;
   &.menu-exited{
     opacity: 0;
@@ -47,6 +47,7 @@ Control.defaultProps = {
   shadow: true,
   caps: true,
   bold: true,
+  cursor: true,
   size: {
     umd: 'small',
     md: 'standard',
