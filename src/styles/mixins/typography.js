@@ -35,24 +35,6 @@ export const selectShade = (shade) => {
       return css`
         &&& { color: ${theme.black}; }
       `;
-    case 'dark':
-      return css`
-        &&& { color: ${theme.defaultHeadingColor}; }
-      `;
-    case 'light':
-      return css`
-        &&& { color: ${theme.gray3}; }
-      `;
-    case 'white':
-      return css`
-        &&& { color: ${theme.white}; }
-      `;
-    case 'whiteish':
-      return css`
-        &&& { color: ${lighten(0.1, theme.grey6)}; }
-      `;
-    case 'medium':
-    case 'default':
     default:
       return css`
         &&& { color: ${theme.defaultTextColor}; }

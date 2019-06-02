@@ -1,5 +1,5 @@
 export default {
-  jumbo: {
+  hero: {
     lg: {
       fontSize: '3.4rem',
       lineHeight: '64px',
@@ -15,24 +15,6 @@ export default {
     xs: {
       fontSize: '2.1875rem',
       lineHeight: '40px',
-    },
-  },
-  hero: {
-    lg: {
-      fontSize: '2.0rem',
-      lineHeight: '48px',
-    },
-    md: {
-      fontSize: '1.7rem',
-      lineHeight: '48px',
-    },
-    sm: {
-      fontSize: '1.6rem',
-      lineHeight: '40px',
-    },
-    xs: {
-      fontSize: '1.55rem',
-      lineHeight: '32px',
     },
   },
   heading: {
@@ -71,7 +53,7 @@ export default {
       lineHeight: '40px',
     },
   },
-  superstandard: {
+  large: {
     lg: {
       fontSize: '1.4375rem',
       lineHeight: '32px',
@@ -107,25 +89,7 @@ export default {
       lineHeight: '24px',
     },
   },
-  substandard: {
-    lg: {
-      fontSize: '1.125rem',
-      lineHeight: '24px',
-    },
-    md: {
-      fontSize: '1.125rem',
-      lineHeight: '24px',
-    },
-    sm: {
-      fontSize: '1.125rem',
-      lineHeight: '24px',
-    },
-    xs: {
-      fontSize: '1.125rem',
-      lineHeight: '24px',
-    },
-  },
-  label: {
+  small: {
     lg: {
       fontSize: '1rem',
       lineHeight: '20px',

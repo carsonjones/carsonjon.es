@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-imp
+import { Text } from 'elements';
 import {
   Container,
   Control,
